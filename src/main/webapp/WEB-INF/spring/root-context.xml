@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+   <property value="oracle.jdbc.driver.OracleDriver" name="driverClassName" />
+   <property value="jdbc:oracle:thin:@localhost:1521:xe" name="url" />
+   <property value="chmp1408" name="username" />
+   <property value="1408" name="password" />
+</bean>
+<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="SqlSessionFactory">
+   <property name="dataSource" ref="dataSource" />
+    <!-- <property value="classpath:mybatis-config.xml" name="configLocation" /> -->
+   <property value="classpath:/mappers/**/*Mapper.xml" name="mapperLocations" />
+</bean>
+    
+<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession" destroy-method="clearCache">
+   <constructor-arg name="sqlSessionFactory" ref="SqlSessionFactory" />
+</bean>
+
+<!-- 트랜잭션 관련 설정 -->
+<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+   <property name="dataSource" ref="dataSource" />
+</bean>
+    
+<!-- 트랜잭션 관련 어노테이션을 자동 인식하는 옵션 -->
+<tx:annotation-driven/>
+	
+</beans>
