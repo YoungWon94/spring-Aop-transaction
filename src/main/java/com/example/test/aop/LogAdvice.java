@@ -16,7 +16,7 @@ public class LogAdvice {
 	//로깅을 위한 변수
 	private static final Logger logger = LoggerFactory.getLogger(LogAdvice.class);
 	
-	//@Before, @After, @Around 사용할때 포인트컷 적어줘야함.
+	//@Before, @After, @Around 사용할때 포인트컷 적어줘야함. Before, After, Around 자체는 조인 포인트임.
 	@Around(//포인트컷. 정규표현식으로 작성. 
 			"execution(* com.example.test.controller..*Controller.*(..))"
 			+" or execution(* com.example.test.model.dao..*DAOImpl.*(..))"
