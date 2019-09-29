@@ -3,6 +3,6 @@ package com.example.test.service;
 import com.example.test.model.dto.MessageDTO;
 
 public interface MessageService {
-	public void addMessage(MessageDTO dto); //¸Ş¼¼Áö¸¦ Ãß°¡ÇÒ ¶§ÀÇ Ã³¸®
-	public MessageDTO readMessage(String userid, int mid); //¸Ş¼¼Áö¸¦ ÀĞÀ» ¶§ÀÇ Ã³¸®
+	public void addMessage(MessageDTO dto);  //ë©”ì„¸ì§€ë¥¼ ì¶”ê°€í•  ë•Œì˜ ì²˜ë¦¬
+	public MessageDTO readMessage(String userid, int mid); //ë©”ì„¸ì§€ë¥¼ ì½ì„ ë•Œì˜ ì²˜ë¦¬
 }

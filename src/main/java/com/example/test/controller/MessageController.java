@@ -14,21 +14,21 @@ import com.example.test.service.MessageService;
 
 /*
  * @Controller
- * @RestController : ½ºÇÁ¸µ 4.0ºÎÅÍ »ç¿ë °¡´É
+ * @RestController : ìŠ¤í”„ë§ 4.0ë¶€í„° ì‚¬ìš© ê°€ëŠ¥
  * 
- * @RequestBody: Å¬¶óÀÌ¾ðÆ® -> ¼­¹ö·Î json µ¥ÀÌÅÍ°¡ ÀÔ·ÂµÉ ¶§
- * @ResponseBody: ¼­¹ö¿¡¼­ -> Å¬¶óÀÌ¾ðÆ®·Î json µ¥ÀÌÅÍ¸¦ °¡Á®¿Ã ¶§
+ * @RequestBody: í´ë¼ì´ì–¸íŠ¸ -> ì„œë²„ë¡œ json ë°ì´í„°ê°€ ìž…ë ¥ë  ë•Œ
+ * @ResponseBody: ì„œë²„ì—ì„œ -> í´ë¼ì´ì–¸íŠ¸ë¡œ json ë°ì´í„°ë¥¼ ê°€ì ¸ì˜¬ ë•Œ
  * 
- * ResponseEntitiy Å¬·¡½º : Http Status Code(http »óÅÂÄÚµå) + µ¥ÀÌÅÍ ÇÑ¹ø¿¡ ´Ù °¡Á®¿È
+ * ResponseEntitiy í´ëž˜ìŠ¤ : Http Status Code(http ìƒíƒœì½”ë“œ) + ë°ì´í„° í•œë²ˆì— ë‹¤ ê°€ì ¸ì˜´
  * 
  * 
  * REST uri
 REST : REpresentational State Transfer
--> ÇÏ³ªÀÇ uri°¡ ÇÏ³ªÀÇ °íÀ¯ÇÑ ¸®¼Ò½º¸¦ ´ëÇ¥ÇÏµµ·Ï ¼³°èµÈ °³³ä
-REST ¹æ½ÄÀÌ ¾Æ´Ñ ÆÄ¶ó¹ÌÅÍ·Î Ç¥½ÃµÇ´Â uri ÁÖ¼Ò´Â ÇÑ°³ÀÌÁö¸¸ ÆÄ¶ó¹ÌÅÍÀÇ °ª¿¡ µû¶ó ÆäÀÌÁö°¡ ¹Ù²ï´Ù... http://localhost:8080/spring02/reply/list?bno=1 http://localhost:8080/spring02/reply/list?bno=2 http://localhost:8080/spring02/reply/list?bno=3
-REST ¹æ½ÄÀÇ uri ÇÑ°³ÀÇ ÁÖ¼Ò°¡ ÇÏ³ªÀÇ ¸®¼Ò½º(ÆäÀÌÁö)¸¦ ´ëÇ¥ÇÏµµ·Ï(°¡Áöµµ·Ï) ÇÑ´Ù. http://localhost:8080/spring02/reply/list/1 http://localhost:8080/spring02/reply/list/2 http://localhost:8080/spring02/reply/list/3
-ResponseEntity : ÄÁÆ®·Ñ·¯¸¦ È£ÃâÇÏ¿© µ¥ÀÌÅÍ¿Í http »óÅÂ ÄÚµå¸¦ µ¿½Ã¿¡ ¸®ÅÏ °¡´ÉÇÏ°Ô ÇÔ
-ÄÁÆ®·Ñ·¯¿¡ json data¸¦ Àü´ÞÇÏ´Â Å×½ºÆ®¸¦ À§ÇØ Å©·Ò¿¡ È®Àå ÇÁ·Î±×·¥ ¼³Ä¡ http://gogle.com ¿¡¼­ Advanced REST client °Ë»ö ÀÔ·Âµ¥ÀÌÅÍ¸¦ jsonÀ¸·Î º¸³»±â À§ÇØ »ç¿ë put : ÀüÃ¼ ¼öÁ¤ delete : »èÁ¦ patch : ÀÏºÎºÐ ¼öÁ¤
+-> í•˜ë‚˜ì˜ uriê°€ í•˜ë‚˜ì˜ ê³ ìœ í•œ ë¦¬ì†ŒìŠ¤ë¥¼ ëŒ€í‘œí•˜ë„ë¡ ì„¤ê³„ëœ ê°œë…
+REST ë°©ì‹ì´ ì•„ë‹Œ íŒŒë¼ë¯¸í„°ë¡œ í‘œì‹œë˜ëŠ” uri ì£¼ì†ŒëŠ” í•œê°œì´ì§€ë§Œ íŒŒë¼ë¯¸í„°ì˜ ê°’ì— ë”°ë¼ íŽ˜ì´ì§€ê°€ ë°”ë€ë‹¤... http://localhost:8080/spring02/reply/list?bno=1 http://localhost:8080/spring02/reply/list?bno=2 http://localhost:8080/spring02/reply/list?bno=3
+REST ë°©ì‹ì˜ uri í•œê°œì˜ ì£¼ì†Œê°€ í•˜ë‚˜ì˜ ë¦¬ì†ŒìŠ¤(íŽ˜ì´ì§€)ë¥¼ ëŒ€í‘œí•˜ë„ë¡(ê°€ì§€ë„ë¡) í•œë‹¤. http://localhost:8080/spring02/reply/list/1 http://localhost:8080/spring02/reply/list/2 http://localhost:8080/spring02/reply/list/3
+ResponseEntity : ì»¨íŠ¸ë¡¤ëŸ¬ë¥¼ í˜¸ì¶œí•˜ì—¬ ë°ì´í„°ì™€ http ìƒíƒœ ì½”ë“œë¥¼ ë™ì‹œì— ë¦¬í„´ ê°€ëŠ¥í•˜ê²Œ í•¨
+ì»¨íŠ¸ë¡¤ëŸ¬ì— json dataë¥¼ ì „ë‹¬í•˜ëŠ” í…ŒìŠ¤íŠ¸ë¥¼ ìœ„í•´ í¬ë¡¬ì— í™•ìž¥ í”„ë¡œê·¸ëž¨ ì„¤ì¹˜ http://gogle.com ì—ì„œ Advanced REST client ê²€ìƒ‰ ìž…ë ¥ë°ì´í„°ë¥¼ jsonìœ¼ë¡œ ë³´ë‚´ê¸° ìœ„í•´ ì‚¬ìš© put : ì „ì²´ ìˆ˜ì • delete : ì‚­ì œ patch : ì¼ë¶€ë¶„ ìˆ˜ì •
  * 
  * 
  */

@@ -18,7 +18,7 @@ public class PointDAOImpl implements PointDAO {
 		Map<String,Object> map = new HashMap<String, Object>();
 		map.put("userid",userid);
 		map.put("point",point);
-		sqlSession.update("point.updatePoint",map); //µÎ°³ ÀÌ»ó ³Ñ°Ü¾ß ÇÒ¶§´Â ¸ÊÀ¸·Î
+		sqlSession.update("point.updatePoint",map); //ë‘ê°œ ì´ìƒ ë„˜ê²¨ì•¼ í• ë•ŒëŠ” ë§µìœ¼ë¡œ
 
 	}
 

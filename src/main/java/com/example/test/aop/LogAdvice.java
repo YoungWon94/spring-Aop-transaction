@@ -9,15 +9,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-@Component //½ºÇÁ¸µ¿¡¼­ °ü¸®ÇÏ´Â bean
-@Aspect //°øÅëÀûÀÎ ¾÷¹«¸¦ Áö¿øÇÏ´Â bean
+@Component //ìŠ¤í”„ë§ì—ì„œ ê´€ë¦¬í•˜ëŠ” bean
+@Aspect //ê³µí†µì ì¸ ì—…ë¬´ë¥¼ ì§€ì›í•˜ëŠ” bean
 public class LogAdvice {
 	
-	//·Î±ëÀ» À§ÇÑ º¯¼ö
+	//ë¡œê¹…ì„ ìœ„í•œ ë³€ìˆ˜
 	private static final Logger logger = LoggerFactory.getLogger(LogAdvice.class);
 	
-	//@Before, @After, @Around »ç¿ëÇÒ¶§ Æ÷ÀÎÆ®ÄÆ Àû¾îÁà¾ßÇÔ.
-	@Around(//Æ÷ÀÎÆ®ÄÆ. Á¤±ÔÇ¥Çö½ÄÀ¸·Î ÀÛ¼º. 
+	//@Before, @After, @Around ì‚¬ìš©í• ë•Œ í¬ì¸íŠ¸ì»· ì ì–´ì¤˜ì•¼í•¨.
+	@Around(//í¬ì¸íŠ¸ì»·. ì •ê·œí‘œí˜„ì‹ìœ¼ë¡œ ì‘ì„±. 
 			"execution(* com.example.test.controller..*Controller.*(..))"
 			+" or execution(* com.example.test.model.dao..*DAOImpl.*(..))"
 			+" or execution(* com.example.test.service..*ServiceImpl.*(..))"
@@ -26,9 +26,9 @@ public class LogAdvice {
 		long start = System.currentTimeMillis();
 		
 		
-		Object result = pjp.proceed(); //ÇÙ½É¾÷¹«¸¦ ½ÇÇàÇØ¶ó.. //Before³ª After ÀÏ¶§´Â ÀÌ ¹®Àå ÇÊ¿ä¾øÀ½. pjpÅ¬·¡½º ¸»°í jpÅ¬·¡½º ¾²¸éµÊ
+		Object result = pjp.proceed(); //í•µì‹¬ì—…ë¬´ë¥¼ ì‹¤í–‰í•´ë¼.. //Beforeë‚˜ After ì¼ë•ŒëŠ” ì´ ë¬¸ì¥ í•„ìš”ì—†ìŒ. pjpí´ë˜ìŠ¤ ë§ê³  jpí´ë˜ìŠ¤ ì“°ë©´ë¨
 		
-		String type = pjp.getSignature().getDeclaringTypeName(); //Å¬·¡½º ÀÌ¸§ °¡Á®¿È.
+		String type = pjp.getSignature().getDeclaringTypeName(); //í´ë˜ìŠ¤ ì´ë¦„ ê°€ì ¸ì˜´.
 		String name="";
 		
 		if(type.indexOf("Controller")>-1) {
@@ -40,16 +40,15 @@ public class LogAdvice {
 		}
 				
 		
-		logger.info(name + type + "." + pjp.getSignature().getName()); //¸Ş¼­µå ÀÌ¸§ °¡Á®¿È.
-		logger.info(Arrays.toString(pjp.getArgs())); // ¸Ş¼­µå¿¡ ³Ñ¾î°¡´Â ÆÄ¶ó¹ÌÅÍ °ª °¡Á®¿È
+		logger.info(name + type + "." + pjp.getSignature().getName()); //ë©”ì„œë“œ ì´ë¦„ ê°€ì ¸ì˜´.
+		logger.info(Arrays.toString(pjp.getArgs())); // ë©”ì„œë“œì— ë„˜ì–´ê°€ëŠ” íŒŒë¼ë¯¸í„° ê°’ ê°€ì ¸ì˜´
 		
 		long end = System.currentTimeMillis();
 		long time = end - start;
 		
-		logger.info("½ÇÇà½Ã°£ : "+time);
+		logger.info("ì‹¤í–‰ì‹œê°„ : "+time);
 		
 		return result;
 		
 	}
 }
- 

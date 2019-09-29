@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.example.test.model.dto.MessageDTO;
 
 
-@Repository("messageDao2") //½ºÇÁ¸µ ÄÁÅ×ÀÌ³Ê°¡ °ü¸®ÇÏ´Â (DAO)ºóÀ¸·Î µî·Ï
+@Repository("messageDao2") //ìŠ¤í”„ë§ ì»¨í…Œì´ë„ˆê°€ ê´€ë¦¬í•˜ëŠ” (DAO)ë¹ˆìœ¼ë¡œ ë“±ë¡
 public class MessageDAOImpl implements MessageDAO {
 
 	@Autowired

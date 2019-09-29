@@ -13,19 +13,19 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 
 
-//JUnit Test Case¸¦ ÇÏ±â À§ÇØ¼­ ¸¸µç Å¬·¡½º
-//JUnit 4 ¹öÀüÀ¸·Î Å×½ºÆ®
+//JUnit Test Caseë¥¼ í•˜ê¸° ìœ„í•´ì„œ ë§Œë“  í´ëž˜ìŠ¤
+//JUnit 4 ë²„ì „ìœ¼ë¡œ í…ŒìŠ¤íŠ¸
 
-//@RunWith : JUnit ÇÁ·¹ÀÓ¿öÅ© Å×½ºÆ® ½ÇÇà ¹æ¹ýÀ» È®ÀåÇÒ ¶§ »ç¿ëÇÏ´Â ¾î³ëÅ×ÀÌ¼Ç
-//SpringJUnit4ClassRunner¶ó´Â JUnit¿ë Å×½ºÆ® ÄÁÅØ½ºÆ® ÇÁ·¹ÀÓ¿öÅ© È®Àå Å¬·¡½º¸¦ ÁöÁ¤ÇØÁÖ¸é
-//JUnitÀÌ Å×½ºÆ®¸¦ ÁøÇàÇÏ´Â Áß¿¡
-//Å×½ºÆ®°¡ »ç¿ëÇÒ ¾ÖÇÃ¸®ÄÉÀÌ¼Ç ÄÁÅØ½ºÆ®¸¦ ¸¸µé¾îÁÖ°í °ü¸®ÇÏ´Â ÀÛ¾÷À» ÁøÇàÇØÁØ´Ù.
+//@RunWith : JUnit í”„ë ˆìž„ì›Œí¬ í…ŒìŠ¤íŠ¸ ì‹¤í–‰ ë°©ë²•ì„ í™•ìž¥í•  ë•Œ ì‚¬ìš©í•˜ëŠ” ì–´ë…¸í…Œì´ì…˜
+//SpringJUnit4ClassRunnerë¼ëŠ” JUnitìš© í…ŒìŠ¤íŠ¸ ì»¨í…ìŠ¤íŠ¸ í”„ë ˆìž„ì›Œí¬ í™•ìž¥ í´ëž˜ìŠ¤ë¥¼ ì§€ì •í•´ì£¼ë©´
+//JUnitì´ í…ŒìŠ¤íŠ¸ë¥¼ ì§„í–‰í•˜ëŠ” ì¤‘ì—
+//í…ŒìŠ¤íŠ¸ê°€ ì‚¬ìš©í•  ì• í”Œë¦¬ì¼€ì´ì…˜ ì»¨í…ìŠ¤íŠ¸ë¥¼ ë§Œë“¤ì–´ì£¼ê³  ê´€ë¦¬í•˜ëŠ” ìž‘ì—…ì„ ì§„í–‰í•´ì¤€ë‹¤.
 
 
-//@ContextConfigurationÀº ÀÚµ¿À¸·Î ¸¸µé¾îÁÙ ¾ÖÇÃ¸®ÄÉÀÌ¼Ç ÄÁÅØ½ºÆ®ÀÇ ¼³Á¤ÆÄÀÏ À§Ä¡¸¦ ÁöÁ¤ÇÑ °ÍÀÌ´Ù.
-//½ºÇÁ¸µÀÇ JUnit È®Àå±â´ÉÀº Å×½ºÆ®°¡ ½ÇÇàµÇ±â Àü¿¡ µü ÇÑ¹ø¸¸ ¾ÖÇÃ¸®ÄÉÀÌ¼Ç ÄÁÅØ½ºÆ®¸¦ ¸¸µé¾îÁÖ°í,
-//Å×½ºÆ® ¿ÀºêÁ§Æ®°¡ ¸¸µé¾îÁú ¶§¸¶´Ù
-//Æ¯º°ÇÑ ¹æ¹ýÀ» ÀÌ¿ëÇØ ¾ÖÇÃ¸®ÄÉÀÌ¼Ç ÄÁÅØ½ºÆ® ÀÚ½ÅÀ» Å×½ºÆ® ¿ÀºêÁ§Æ®ÀÇ Æ¯Á¤ ÇÊµå¿¡ ÁÖÀÔÇØ ÁÖ´Â °ÍÀÌ´Ù.
+//@ContextConfigurationì€ ìžë™ìœ¼ë¡œ ë§Œë“¤ì–´ì¤„ ì• í”Œë¦¬ì¼€ì´ì…˜ ì»¨í…ìŠ¤íŠ¸ì˜ ì„¤ì •íŒŒì¼ ìœ„ì¹˜ë¥¼ ì§€ì •í•œ ê²ƒì´ë‹¤.
+//ìŠ¤í”„ë§ì˜ JUnit í™•ìž¥ê¸°ëŠ¥ì€ í…ŒìŠ¤íŠ¸ê°€ ì‹¤í–‰ë˜ê¸° ì „ì— ë”± í•œë²ˆë§Œ ì• í”Œë¦¬ì¼€ì´ì…˜ ì»¨í…ìŠ¤íŠ¸ë¥¼ ë§Œë“¤ì–´ì£¼ê³ ,
+//í…ŒìŠ¤íŠ¸ ì˜¤ë¸Œì íŠ¸ê°€ ë§Œë“¤ì–´ì§ˆ ë•Œë§ˆë‹¤
+//íŠ¹ë³„í•œ ë°©ë²•ì„ ì´ìš©í•´ ì• í”Œë¦¬ì¼€ì´ì…˜ ì»¨í…ìŠ¤íŠ¸ ìžì‹ ì„ í…ŒìŠ¤íŠ¸ ì˜¤ë¸Œì íŠ¸ì˜ íŠ¹ì • í•„ë“œì— ì£¼ìž…í•´ ì£¼ëŠ” ê²ƒì´ë‹¤.
 
 
 
@@ -33,7 +33,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/root-context.xml"})
 public class MybatisTest {
 	
-	//·Î±ëÀ» À§ÇÑ º¯¼ö
+	//ë¡œê¹…ì„ ìœ„í•œ ë³€ìˆ˜
 	private static final Logger logger = LoggerFactory.getLogger(MybatisTest.class);
 	
 	@Autowired
@@ -49,9 +49,11 @@ public class MybatisTest {
 	public void testSession() {
 		try(SqlSession sqlSession = sqlFactory.openSession()){
 			logger.info("sqlSession : " + sqlSession);
-			logger.info("mybatis¿¬°á ¼º°ø");
+			logger.info("mybatis ì—°ê²°ì„±ê³µ");
 		}catch(Exception e) {
+			logger.info("mybatis ì—°ê²°ì„±ê³µ");
 			e.printStackTrace();
+			
 		}
 	}
 }

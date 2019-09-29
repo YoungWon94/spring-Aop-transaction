@@ -9,32 +9,31 @@ import com.example.test.model.dao.MessageDAO;
 import com.example.test.model.dao.PointDAO;
 import com.example.test.model.dto.MessageDTO;
 
-
 @Service("messageService2")
 public class MessageServiceImpl implements MessageService {
 
-	@Resource(name="messageDao2")
+	@Resource(name = "messageDao2")
 	MessageDAO messageDao;
-	
-	@Resource(name="pointDao2")
+
+	@Resource(name = "pointDao2")
 	PointDAO pointDao;
-	
+
 	@Transactional
 	@Override
 	public void addMessage(MessageDTO dto) {
-		
-		//·Î±×È®ÀÎ(°øÅë¾÷¹«) -> aop Àû¿ë...
-		
-		//ÇÙ½É¾÷¹«
-		messageDao.create(dto); //¸Ş¼¼Áö¸¦ Å×ÀÌºí¿¡ ÀúÀå
-		System.out.println("¸Ş¼¼Áö¸¦ Å×ÀÌºí¿¡ ÀÎ¼­Æ® ÇÏ¿´À½");
-		pointDao.updatePoint(dto.getSender(), 10); //¸Ş¼¼Áö¸¦ ¹ß¼ÛÇÑ È¸¿ø¿¡°Ô 10Æ÷ÀÎÆ® Ãß°¡
+
+		// ë¡œê·¸í™•ì¸(ê³µí†µì—…ë¬´) -> aop ì ìš©...
+
+		// í•µì‹¬ì—…ë¬´
+		messageDao.create(dto); // ë©”ì„¸ì§€ë¥¼ í…Œì´ë¸”ì— ì €ì¥
+		System.out.println("ë©”ì„¸ì§€ë¥¼ í…Œì´ë¸”ì— ì¸ì„œíŠ¸ í•˜ì˜€ìŒ");
+		pointDao.updatePoint(dto.getSender(), 10); // ë©”ì„¸ì§€ë¥¼ ë°œì†¡í•œ íšŒì›ì—ê²Œ 10í¬ì¸íŠ¸ ì¶”ê°€
 
 	}
 
 	@Override
 	public MessageDTO readMessage(String userid, int mid) {
-		
+
 		return null;
 	}
 

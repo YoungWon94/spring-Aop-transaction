@@ -4,7 +4,7 @@ import com.example.test.model.dto.MessageDTO;
 
 public interface MessageDAO {
 	
-	public void create(MessageDTO dto); //¸Ş¼¼Áö º¸³»±â
-	public MessageDTO readMessage(int mid);//¸Ş¼¼Áö ÀĞ±â
-	public void updateState(int mid); //»óÅÂº¯°æ
+	public void create(MessageDTO dto); //ë©”ì„¸ì§€ ë³´ë‚´ê¸°
+	public MessageDTO readMessage(int mid);//ë©”ì„¸ì§€ ì½ê¸°
+	public void updateState(int mid); //ìƒíƒœë³€ê²½
 }

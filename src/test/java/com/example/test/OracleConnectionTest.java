@@ -22,10 +22,10 @@ public class OracleConnectionTest {
 		Class.forName(driver);
 		
 		try(Connection conn = DriverManager.getConnection(url, name, password)) {
-			logger.info("oracle¿¡ ¿¬°áµÊ");
+			logger.info("oracleì—°ê²° ì„±ê³µ");
 		} catch (Exception e) {
 			// TODO: handle exception
-			logger.info("oracle¿¡ ¿¬°á½ÇÆÐ");
+			logger.info("oracleì—°ê²° ì‹¤íŒ¨");
 			e.printStackTrace();
 		}
 	}
